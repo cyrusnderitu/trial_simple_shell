@@ -6,17 +6,21 @@
  */
 char *_getline(void)
 {
-	char *lineptr = NULL;
 	size_t len = 0;
-
-	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "#S-shell$ ", 10);
-
-	if (getline(&lineptr, &len, stdin) == -1)
+	char *ptr = NULL, *line = NULL;
+	ssize_t nread;
+	write(STDOUT_FILENO, "#cisfun$ ", 9);
+	while ((nread = getline(&line, &len, stdin)) != -1)
 	{
-		free(lineptr);
-		return (NULL);
+		ptr = malloc(nread + 1);
+		_strcpy(ptr, line);
+		free(line);
+		break;
 	}
-
-	return (lineptr);
+	if (nread == -1)
+	{
+		write(1, "\n", 1);
+		exit(0);
+	}
+	return (ptr);
 }
