@@ -30,9 +30,11 @@ int main(void)
 			}
 			else
 			{
-				_strcat(PATH, input_list[0])
+				_strcat(PATH, input_list[0]);
 				if (stat(PATH, &st) != 0)
+				{
 					perror("Could not find file");
+				}
 				else
 				{
 					input_list[0] = PATH;
