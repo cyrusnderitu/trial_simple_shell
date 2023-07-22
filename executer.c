@@ -9,8 +9,9 @@ void _execute(char* args[])
 {
     pid_t child;
     char PATH[100] = "/bin/";
+	struct stat st;
 
-    _strcat(PATH, arr[0]);
+    _strcat(PATH, args[0]);
 	if (stat(PATH, &st) != 0)
     {
 		perror("could not find file");
