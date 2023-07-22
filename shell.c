@@ -50,7 +50,10 @@ int main(void)
 				{
                 	_execute(input_list);
                 	exit(EXIT_SUCCESS);
-                } else
+                } else if (pid > 0)
+				{
+					wait(NULL);
+				}else
 				{
             	  	_execute(input_list);
             	}
