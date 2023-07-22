@@ -27,14 +27,9 @@ int main(void)
 				token = _strtok(NULL, " ");
 			}
 			input_list[i] = NULL;
-			if (!input_list)
-			{
-				free(commands);
-				continue;
-			}
 			if ((!_strcmp(input_list[0], "exit")) && input_list[1] == NULL)
 			{
-				free(input_list);
+				free(commands);
 				break;
 			}
 			else
