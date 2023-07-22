@@ -54,7 +54,7 @@ int main(void)
                 }
             } else
 				{
-                	execute_command(args);
+                	_execute(input_list);
             	}
 			}
 		}
