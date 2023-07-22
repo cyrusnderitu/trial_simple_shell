@@ -8,16 +8,25 @@
 int main(void)
 {
 	char *commands = NULL, *input_list[100];
+	char *token;
 	char PATH[100] = "/bin/";
-	int status;
+	int status, i = 0;
 	pid_t child;
+	struct stat st;
 
 	while (1)
 	{
 		commands = _getline();
 		if (commands)
 		{
-			input_list = _strtok(commands, " ");
+			token = _strtok(commands, " ");
+			while (token != NULL)
+			{
+				input_list[i] = token;
+				i++;
+				token = _strtok(NULL, " ");
+			}
+			input_list[i] = NULL;
 			if (!input_list)
 			{
 				free(commands);
