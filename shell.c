@@ -10,6 +10,7 @@ int main(void)
 	char *commands = NULL, **input_list;
 	char PATH[100] = "/bin/";
 	int status;
+	pid_t child;
 
 	while (1)
 	{
@@ -37,12 +38,12 @@ int main(void)
 					input_list[0] = PATH;
 					child = fork();
 				}
-				if (pid == 0)
+				if (child == 0)
 				{
 					execve(input_list[0], input_list, NULL);
 					exit(1);
 				}
-				else if (pid > 0)
+				else if (child > 0)
 				{
 					wait(&status);
 				}
