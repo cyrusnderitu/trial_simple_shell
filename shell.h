@@ -18,4 +18,5 @@ char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_strtok(char *str, const char *delim);
 char *_strdup(const char *str);
+void _execute(char* args[]);
 #endif

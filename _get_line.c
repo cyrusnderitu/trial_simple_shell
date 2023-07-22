@@ -10,7 +10,8 @@ char *_getline(void)
 	size_t len = 0;
 
 	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "$S-shell ", 8);
+		write(STDOUT_FILENO, "#S-shell$ ", 10);
+		fflush(stdout);
 
 	if (getline(&lineptr, &len, stdin) == -1)
 	{
