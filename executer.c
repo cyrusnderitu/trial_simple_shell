@@ -10,7 +10,7 @@ void _execute(char* args[])
     pid_t child;
     child = fork();
     if (child == 0) {
-        if (execve(args[0], args) == -1) {
+        if (execve(args[0], args, NULL) == -1) {
             perror("Command execution failed");
         }
         exit(EXIT_FAILURE);
