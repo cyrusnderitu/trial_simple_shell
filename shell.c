@@ -10,12 +10,12 @@ int main(void)
 	char *commands = NULL, *input_list[100];
 	char *token;
 	int status = 0, i = 0;
-	pid_t child;
 
 	do
 	{
 		commands = _getline();
 		fflush(stdout);
+
 		if (commands)
 		{
 			status = 1;
@@ -63,6 +63,6 @@ int main(void)
 			exit(1);
 		}
 		free(commands);
-	} while(1)
+	} while(1);
 	return (0);
 }
