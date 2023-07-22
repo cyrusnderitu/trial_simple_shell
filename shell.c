@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	char *commands = NULL, **input_list;
+	char *commands = NULL, *input_list[100];
 	char PATH[100] = "/bin/";
 	int status;
 	pid_t child;
