@@ -9,12 +9,12 @@ void _execute(char* args[])
 {
     pid_t child;
     child = fork();
-    if (pid == 0) {
+    if (child == 0) {
         if (execve(args[0], args) == -1) {
             perror("Command execution failed");
         }
         exit(EXIT_FAILURE);
-    } else if (pid < 0) {
+    } else if (child < 0) {
         perror("Fork error");
     } else {
         wait(NULL);
