@@ -11,7 +11,6 @@ char *_getline(void)
 
 	if (isatty(STDIN_FILENO))
 		write(STDOUT_FILENO, "#S-shell$ ", 10);
-		fflush(stdout);
 
 	if (getline(&lineptr, &len, stdin) == -1)
 	{
