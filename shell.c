@@ -59,7 +59,6 @@ int main(void)
 					exit(1);
 				}
 			}
-			free(input_list);
 		}
 		else
 		{
