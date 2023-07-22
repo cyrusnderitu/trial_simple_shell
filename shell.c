@@ -9,7 +9,6 @@ int main(void)
 {
 	char *commands = NULL, *input_list[100];
 	char *token;
-	char PATH[100] = "/bin/";
 	int status = 0, i = 0;
 	pid_t child;
 	struct stat st;
@@ -36,26 +35,26 @@ int main(void)
 			}
 			else if (_strcmp(input_list[0], "cd") == 0) 
 			{
-                if (input_list[1] != NULL) 
+                		if (input_list[1] != NULL) 
 				{
-                    if (chdir(input_list[1]) == -1) 
+                    			if (chdir(input_list[1]) == -1)
 					{
-                        perror("cd");
-                    }
-                }
-                continue;
-            }
+                        			perror("cd");
+                    			}
+                		}
+                	continue;
+            		}
 			if(status)
 			{
-                pid_t pid = fork();
-                if (pid == 0) {
-                    _execute(input_list);
-                    exit(EXIT_SUCCESS);
-                }
-            } else
+                		pid_t pid = fork();
+                		if (pid == 0)
 				{
-                	_execute(input_list);
-            	}
+                    			_execute(input_list);
+                    			exit(EXIT_SUCCESS);
+                		} else
+				{
+            	    			_execute(input_list);
+            			}
 			}
 		}
 		else
