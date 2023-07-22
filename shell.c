@@ -8,11 +8,8 @@
 int main(void)
 {
 	char *commands = NULL, **input_list;
-	pid_t child;
-	char delim[] = " \n", PATH[100] = "/bin/";
+	char PATH[100] = "/bin/";
 	int status;
-	int i = 0;
-	struct stat st;
 
 	while (1)
 	{
@@ -61,9 +58,9 @@ int main(void)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
-			exit(_exit);
+			exit(1);
 		}
 		free(commands);
 	}
-	return (_exit);
+	return (0);
 }
