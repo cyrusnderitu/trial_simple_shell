@@ -17,6 +17,7 @@ int main(void)
 	while (1)
 	{
 		commands = _getline();
+		fflush(stdout);
 		if (commands)
 		{
 			status = 1;
