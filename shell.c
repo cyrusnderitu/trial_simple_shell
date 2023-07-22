@@ -7,9 +7,9 @@
 
 int main(void)
 {
-	char *commands = NULL, **input_list = NULL;
+	char *commands = NULL, **input_list;
 	pid_t child;
-	char delim[] = " \n", PATH[100] = "usr/bin/";
+	char delim[] = " \n", PATH[100] = "/bin/";
 	int status;
 	int i = 0;
 	struct stat st;
